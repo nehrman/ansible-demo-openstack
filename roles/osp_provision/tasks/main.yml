@@ -1,0 +1,14 @@
+---
+# tasks file for ./roles/osp_provision
+- name: Ensure "{{ instance_name }}" Intance is present
+  os_server:
+    name: "{{ instance_name }}"
+    state: present
+    cloud: "{{ cloud_name }}"
+    flavor: "{{ instance_flavor }}"
+    image: "{{ instance_image }}"
+    key_name: "{{ keypair_name }}"
+    meta: "{{ instance_meta }}"
+    nics: "{{ instance_network }}"
+    security_groups: "{{ instance_secgroups }}"
+  register: os_instance_r
