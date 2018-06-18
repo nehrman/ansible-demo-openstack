@@ -11,17 +11,14 @@
         tasks_from: sg_web.yml
       vars:
         securitygroup:
-          web-app-sg:
-            name: web-app-sg
+          - name: web-app-sg
             state: present
             description: Security Group for Web Apps
             rules:
-              - name: web
-                protocol: tcp
+              - protocol: tcp
                 port: 80
                 prefix: 0.0.0.0/0
-              - name: ssh
-                protocol: tcp
+              - protocol: tcp
                 port: 22
                 prefix: 0.0.0.0/0
 
