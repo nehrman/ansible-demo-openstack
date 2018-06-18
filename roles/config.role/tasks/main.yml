@@ -18,6 +18,7 @@
     state: present
     activationkey: "{{ rh_activation_key }}"
     org_id: "{{ rh_org_id }}"
+  ignore_errors: yes
 
 - name: Disable all the enabled RHSM repositories
   command: subscription-manager repos --disable="*"
