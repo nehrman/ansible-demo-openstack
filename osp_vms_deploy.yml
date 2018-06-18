@@ -45,9 +45,9 @@
         name: osp_facts
         tasks_from: main.yml
 
-- hosts: apps:&PROD
+- hosts: {{ scope }}
 
-  tasks: 
+  tasks:
     - name: Configure Web instances
       include_role:
         name: config.roles
