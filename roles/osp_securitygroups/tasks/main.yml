@@ -4,13 +4,13 @@
   os_security_group:
     name: sg_frontend
     state: present
-    cloud: "{{ cloud_name }}"
+    cloud: "{{ os_cldou_name }}"
     description: "Security Group for Frontends"
 
 - name: Create and configure Frontends Security Groups Rules
   os_security_group_rule:
     state: present
-    cloud: "{{ cloud_name }}"
+    cloud: "{{ os_cldou_name }}"
     security_group: sg_frontend
     protocol: tcp
     port_range_min: "{{ item.port }}"
@@ -25,13 +25,13 @@
   os_security_group:
     name: sg_apps
     state: present
-    cloud: "{{ cloud_name }}"
+    cloud: "{{ os_cldou_name }}"
     description: "Security Group for Apps"
 
 - name: Create and configure Apps Security Groups Rules
   os_security_group_rule:
     state: present
-    cloud: "{{ cloud_name }}"
+    cloud: "{{ os_cldou_name }}"
     security_group: sg_apps
     protocol: tcp
     port_range_min: "{{ item.port }}"
@@ -45,13 +45,13 @@
   os_security_group:
     name: sg_dbs
     state: present
-    cloud: "{{ cloud_name }}"
+    cloud: "{{ os_cldou_name }}"
     description: "Security Group for Apps"
 
 - name: Create and configure DBs Security Groups Rules
   os_security_group_rule:
     state: present
-    cloud: "{{ cloud_name }}"
+    cloud: "{{ os_cldou_name }}"
     security_group: sg_dbs
     protocol: tcp
     port_range_min: "{{ item.port }}"
