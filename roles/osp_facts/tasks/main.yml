@@ -2,7 +2,7 @@
 # tasks file for osp_facts
 - name: Gather Facts from OSP Instances
   os_server_facts:
-    cloud: "{{ cloud_name }}"
+    cloud: "{{ os_cloud_name }}"
 #    region_name: "{{ osp_region_name }}"
   register: result
 
