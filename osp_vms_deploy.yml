@@ -1,0 +1,34 @@
+---
+- name: CDeploy Web Servers on OSP
+  hosts: localhost
+  connection: local
+
+  tasks:
+
+    - name: Ensure configuration of Security Group is present
+      include_role:
+        name: osp_securitygroups
+        vars:
+          securitygroup:
+            - name: web-app-sg
+              state: present
+              description: Security Group for Web Apps
+              rules:
+                - name:
+                  protocol: tcp
+                  port: 80
+                  prefix: 0.0.0.0/0
+                - name:
+                  protocol: tcp
+                  port: 22
+                  prefix: 0.0.0.0/0
+
+
+  # - name: Deploy app1 instance
+  #   include_role:
+  #      name: osp_provision
+  #      vars_from: app1.yml
+  #
+  # - name: Create In-Memory Inventory
+  #   include_role:
+  #      name: osp_facts
