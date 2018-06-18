@@ -8,6 +8,7 @@
     description: "{{ item.0.description }}"
   with_subelements:
     - "{{ securitygroup }}"
+    - rules
 
 - name: "Ensure [{{ item.1.name }}] Security Groups Rules are [{{ item.1.state }}]"
   os_security_group_rule:
