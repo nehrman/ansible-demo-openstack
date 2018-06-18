@@ -10,7 +10,7 @@
     - "{{ securitygroup }}"
     - rules
 
-- name: Ensure "{{ item.1.name }}" Security Groups Rules are {{ item.1.rules.state }}
+- name: Ensure "{{ item.1.name }}" Security Groups Rules are {{ item.1.state }}
   os_security_group_rule:
     state: "{{ item.1.state }}"
     cloud: "{{ os_cloud_name }}"
