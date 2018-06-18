@@ -6,10 +6,10 @@
     state: "{{ item.0.state }}"
     cloud: "{{ os_cloud_name }}"
     description: "{{ item.0.description }}"
-  with_subelements:
+  with_dict:
     - "{{ securitygroup }}"
 
-- name: Ensure "{{ item.value.name }}" Security Groups Rules are {{ item.value.rules.state }}
+- name: Ensure "{{ item.1.name }}" Security Groups Rules are {{ item.1.rules.state }}
   os_security_group_rule:
     state: "{{ item.1.state }}"
     cloud: "{{ os_cloud_name }}"
