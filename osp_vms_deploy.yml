@@ -18,9 +18,11 @@
               - protocol: tcp
                 port: 80
                 prefix: 0.0.0.0/0
+                state: present
               - protocol: tcp
                 port: 22
                 prefix: 0.0.0.0/0
+                state: present
 
 
 
