@@ -9,21 +9,20 @@
       include_role:
         name: osp_securitygroups
         tasks_from: sg_web.yml
-
-        vars:
-          securitygroup:
-            - name: web-app-sg
-              state: present
-              description: Security Group for Web Apps
-              rules:
-                - name: web
-                  protocol: tcp
-                  port: 80
-                  prefix: 0.0.0.0/0
-                - name: ssh
-                  protocol: tcp
-                  port: 22
-                  prefix: 0.0.0.0/0
+      vars:
+        securitygroup:
+          - name: web-app-sg
+            state: present
+            description: Security Group for Web Apps
+            rules:
+              - name: web
+                protocol: tcp
+                port: 80
+                prefix: 0.0.0.0/0
+              - name: ssh
+                protocol: tcp
+                port: 22
+                prefix: 0.0.0.0/0
 
 
   # - name: Deploy app1 instance
