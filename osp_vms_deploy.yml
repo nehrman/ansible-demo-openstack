@@ -23,18 +23,18 @@
                 port: 22
                 prefix: 0.0.0.0/0
                 state: present
-            - name: db-app-sg
+        - name: db-app-sg
+          state: present
+          description: Security Group for DB Apps
+          rules:
+            - protocol: tcp
+              port: 80
+              prefix: 0.0.0.0/0
               state: present
-              description: Security Group for DB Apps
-              rules:
-                - protocol: tcp
-                  port: 80
-                  prefix: 0.0.0.0/0
-                  state: present
-                - protocol: tcp
-                  port: 22
-                  prefix: 0.0.0.0/0
-                  state: present
+            - protocol: tcp
+              port: 22
+              prefix: 0.0.0.0/0
+              state: present
 
 
 
