@@ -23,20 +23,22 @@
                 port: 22
                 prefix: 0.0.0.0/0
                 state: present
-          - name: db-app-sg
-            state: present
-            description: Security Group for DB Apps
-            rules:
-              - protocol: tcp
-                port: 80
-                prefix: 0.0.0.0/0
-                state: present
-              - protocol: tcp
-                port: 22
-                prefix: 0.0.0.0/0
-                state: present
 
-
+    - name: Ensure Web instances are presents
+      include_role:
+        name: osp_securitygroups
+        tasks_from: provision.yml
+      vars:
+        instance_name: "weblx{{ ops_count }}"
+        instance_state: present
+        os_cloud_name: "{{ keypair_name }}"
+        instance_flavor: m1.small
+        instance_image: rhel-server-7.4-x86_64
+        keypair_name: ""
+        instance_meta: "group=apps,deployment_name=PROD"
+        instance_network: "net-name=priv-net"
+        instance_secgroups: web-app-sg
+      with_sequence: count="{{ os_web_count }}"
 
   # - name: Deploy app1 instance
   #   include_role:
