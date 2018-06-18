@@ -29,7 +29,7 @@
         name: osp_provision
         tasks_from: provision.yml
       vars:
-        instance_name: "weblx{{ ops_count }}"
+        instance_name: "weblx{{ os_web_count }}"
         instance_state: present
         os_cloud_name: "{{ keypair_name }}"
         instance_flavor: m1.small
