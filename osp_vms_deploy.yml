@@ -45,7 +45,8 @@
         name: osp_facts
         tasks_from: main.yml
 
-- hosts: {{ scope }}
+- name: Ensure Instances are well configured
+  hosts: "{{ scope }}"
 
   tasks:
     - name: Configure Web instances
