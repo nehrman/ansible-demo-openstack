@@ -8,6 +8,8 @@
     - name: Ensure configuration of Security Group is present
       include_role:
         name: osp_securitygroups
+        tasks_from: sg_web.yml
+
         vars:
           securitygroup:
             - name: web-app-sg
