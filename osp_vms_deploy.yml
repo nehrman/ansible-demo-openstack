@@ -47,7 +47,8 @@
 
 - name: Ensure Instances are well configured
   hosts: "{{ scope }}"
-
+  become: yes
+  
   tasks:
     - name: Configure Web instances
       include_role:
