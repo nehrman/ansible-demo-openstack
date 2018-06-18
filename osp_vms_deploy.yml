@@ -40,6 +40,11 @@
         instance_secgroups: web-app-sg
       with_sequence: count="{{ os_web_count }}"
 
+    - name: Create In Memory Inventory
+      include_role:
+        name: osp_facts
+        tasks_from: main.yml
+
   # - name: Deploy app1 instance
   #   include_role:
   #      name: osp_provision
