@@ -11,7 +11,8 @@
         tasks_from: sg_web.yml
       vars:
         securitygroup:
-          - name: web-app-sg
+          web-app-sg:
+            name: web-app-sg
             state: present
             description: Security Group for Web Apps
             rules:
@@ -23,6 +24,7 @@
                 protocol: tcp
                 port: 22
                 prefix: 0.0.0.0/0
+
 
 
   # - name: Deploy app1 instance
