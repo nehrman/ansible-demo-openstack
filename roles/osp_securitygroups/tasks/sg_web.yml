@@ -1,23 +1,26 @@
 ---
 # tasks file for ./roles/osp_securitygroups
-- name: Ensure {{ item.value.name }} Security Group is {{ item.value.state }}
+- name: Ensure {{ item.0.name }} Security Group is {{ item.0.state }}
   os_security_group:
-    name: "{{ item.value.name }}"
-    state: "{{ item.value.state }}"
+    name: "{{ item.0.name }}"
+    state: "{{ item.0.state }}"
     cloud: "{{ os_cloud_name }}"
-    description: "{{ item.value.description }}"
-  loop: "{{ lookup('dict',securitygroup)}}"
+    description: "{{ item.0.description }}"
+  with_subelements:
+    - "{{ securitygroup }}"
 
 - name: Ensure "{{ item.value.name }}" Security Groups Rules are {{ item.value.rules.state }}
   os_security_group_rule:
-    state: "{{ item.value.rules.state }}"
+    state: "{{ item.1.state }}"
     cloud: "{{ os_cloud_name }}"
-    security_group: "{{ item.value.name }}"
-    protocol: "{{ item.value.rules.protocol }}"
-    port_range_min: "{{ item.value.rules.port }}"
-    port_range_max: "{{ item.value.rules.port }}"
-    remote_ip_prefix: "{{ item.value.rules.prefix }}"
-  loop: "{{ lookup('dict',securitygroup)}}"
+    security_group: "{{ item.0.name }}"
+    protocol: "{{ item.1.protocol }}"
+    port_range_min: "{{ item.1.port }}"
+    port_range_max: "{{ item.1.port }}"
+    remote_ip_prefix: "{{ item.1.prefix }}"
+  with_subelements:
+    - "{{ securitygroup }}"
+    - rules
   # with_items:
   #   - { port: '80', prefix: '0.0.0.0/0' }
   #   - { port: '22', prefix: '0.0.0.0/0' }
