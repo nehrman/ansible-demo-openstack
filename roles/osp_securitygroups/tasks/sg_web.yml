@@ -1,14 +1,13 @@
 ---
 # tasks file for ./roles/osp_securitygroups
-- name: Ensure {{ item.0.name }} Security Group is {{ item.0.state }}
+- name: "Ensure {{ item.0.name }} Security Group is {{ item.0.state }}"
   os_security_group:
     name: "{{ item.0.name }}"
     state: "{{ item.0.state }}"
     cloud: "{{ os_cloud_name }}"
     description: "{{ item.0.description }}"
-  with_subelements:
+  with_dict:
     - "{{ securitygroup }}"
-    - rules
 
 - name: Ensure "{{ item.1.name }}" Security Groups Rules are {{ item.1.state }}
   os_security_group_rule:
