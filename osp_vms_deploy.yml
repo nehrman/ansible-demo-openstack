@@ -51,7 +51,7 @@
   tasks:
     - name: Configure Web instances
       include_role:
-        name: config.roles
+        name: config.role
         tasks_from: main.yml
 
 
