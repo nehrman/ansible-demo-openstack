@@ -6,7 +6,7 @@
     state: "{{ item.0.state }}"
     cloud: "{{ os_cloud_name }}"
     description: "{{ item.0.description }}"
-  with_dict:
+  with_subelements:
     - "{{ securitygroup }}"
     - rules
 
