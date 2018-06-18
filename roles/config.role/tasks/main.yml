@@ -13,7 +13,6 @@
   yum:
     name: "http://sat01.openhybridcloud.io/pub/katello-ca-consumer-latest.noarch.rpm"
     state: present
-  ignore_errors: yes
 
 - name: Ensure System is registered
   redhat_subscription:
