@@ -6,9 +6,8 @@
     state: "{{ item.0.state }}"
     cloud: "{{ os_cloud_name }}"
     description: "{{ item.0.description }}"
-  with_subelements:
-    - "{{ securitygroup }}"
-    - rules
+  loop:
+    "{{ securitygroup }}"
 
 - name: "Ensure [{{ item.1.name }}] Security Groups Rules are [{{ item.1.state }}]"
   os_security_group_rule:
