@@ -14,11 +14,11 @@
               state: present
               description: Security Group for Web Apps
               rules:
-                - name:
+                - name: web
                   protocol: tcp
                   port: 80
                   prefix: 0.0.0.0/0
-                - name:
+                - name: ssh
                   protocol: tcp
                   port: 22
                   prefix: 0.0.0.0/0
