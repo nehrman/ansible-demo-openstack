@@ -1,8 +1,8 @@
 ---
 # tasks file for ./roles/osp_securitygroups
-- name: Ensure {{ item.0.name }} Security Group is {{ item.0.state }}
+- name: Ensure {{ item.value.name }} Security Group is {{ item.value.state }}
   os_security_group:
-    name: "{{ item.key.name }}"
+    name: "{{ item.key }}"
     state: "{{ item.value.state }}"
     cloud: "{{ os_cloud_name }}"
     description: "{{ item.value.description }}"
