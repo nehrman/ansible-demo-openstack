@@ -12,18 +12,6 @@
     group: "{{ item.metadata.group }},{{item.metadata.environment}}"
   with_items: "{{result.ansible_facts.openstack_servers}}"
 
-# - set_fact:
-#     ips: []
-#
-# - name: Get Public IP
-#   vars:
-#     ip: {{ item }}.public_v4
-#   set_facts:
-#     ips = "{{ ips + ip }}"
-#
-#   with_items: "{{ result.ansible_facts.openstack_servers }}"
-
-
 - name: Ensure Instances are up and reachable
   wait_for_connection:
     timeout: 600
