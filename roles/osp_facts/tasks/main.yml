@@ -15,6 +15,12 @@
     group: "{{ item.metadata.group }},{{item.metadata.environment}}"
   with_items: "{{result.ansible_facts.openstack_servers}}"
 
+- name: Ensure INstances are up and reachable
+  wait_for_connection:
+    timeout: 600
+    sleep : 15
+  with_items: "{{result.ansible_facts.openstack_servers.public_v4 }}"
+
 # - name: Register In Memory Inventory for other playbooks
 #   set_stats:
 #     data:
