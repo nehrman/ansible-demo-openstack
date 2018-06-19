@@ -14,7 +14,7 @@
     group: "{{ item.metadata.group }},{{item.metadata.environment}}"
   with_items: "{{result.ansible_facts.openstack_servers}}"
 
-- name: Register In Memory Inventory for other playbooks
-  set_stats:
-    data:
-      inventory: "{{ inventory }}"
+# - name: Register In Memory Inventory for other playbooks
+#   set_stats:
+#     data:
+#       inventory: "{{ inventory }}"
