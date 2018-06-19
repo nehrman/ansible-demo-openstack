@@ -11,10 +11,10 @@
     name: "{{ item.public_v4 }}"
 #    ansible_ssh_user: cloud-user
 #    ansible_ssh_private_key_file: "{{ ansible_env.HOME }}/.ssh/{{ keypair_name }}_id_rsa"
-    group: "{{ item.metadata.group }}"
+    group: "{{ item.metadata.group }},{{item.metadat.environment}}"
   with_items: "{{result.ansible_facts.openstack_servers}}"
 
 - name: Register In Memory Inventory for other playbooks
   set_stats:
     data:
-      hosts: "{{ hosts }}"
+      inventory: "{{ inventory }}"

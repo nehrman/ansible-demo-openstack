@@ -35,7 +35,7 @@
         instance_flavor: m1.small
         instance_image: rhel-server-7.4-x86_64
         keypair_name: ""
-        instance_meta: "group=apps,group=prod"
+        instance_meta: "group=apps,environment=prod"
         instance_network: "net-name=priv-net"
         instance_secgroups: web-app-sg
       with_sequence: count="{{ os_web_count }}"
