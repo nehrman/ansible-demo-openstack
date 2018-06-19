@@ -16,4 +16,4 @@
   wait_for_connection:
     timeout: 600
     sleep : 15
-  with_items: "{{ result.ansible_facts | map(attribute="public_v4") | list }}"
+  with_items: "{{ result.ansible_facts | map(attribute='public_v4') | list }}"
