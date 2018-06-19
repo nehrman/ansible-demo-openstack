@@ -12,3 +12,5 @@
     nics: "{{ instance_network }}"
     security_groups: "{{ instance_secgroups }}"
   register: os_instance_r
+  async: 1000
+  poll: 0
