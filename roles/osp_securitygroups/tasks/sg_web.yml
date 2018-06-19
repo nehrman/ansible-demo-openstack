@@ -1,6 +1,6 @@
 ---
 # tasks file for ./roles/osp_securitygroups
-- name: "Ensure [{{ item.name }}] Security Group is [{{ item.state }}]"
+- name: "Ensure {{ item.name }} Security Group is {{ item.state }}"
   os_security_group:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
