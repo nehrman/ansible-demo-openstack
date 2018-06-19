@@ -32,7 +32,7 @@
         instance_name: "weblxonp0{{ item }}"
         instance_state: present
         os_cloud_name: "{{ keypair_name }}"
-        instance_flavor: m1.small
+        instance_flavor: m1.medium
         instance_image: rhel-server-7.4-x86_64
         keypair_name: ""
         instance_meta: "group=apps,environment=prod"
